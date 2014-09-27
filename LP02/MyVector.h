@@ -1,9 +1,9 @@
-#include <iostream>
+#include <iostream>//TODO гэта таксама змяшчаецца у guardblock
 
 #ifndef __MyVector_H_
 #define __MyVector_H_
 
-using namespace std;
+using namespace std; // TODO у загаловачніках не раскрывам прастору
 class MyVector
 {
 public:
