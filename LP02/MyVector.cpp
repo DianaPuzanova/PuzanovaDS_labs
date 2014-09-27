@@ -6,7 +6,7 @@ MyVector::MyVector(): n(0), coord(nullptr)
 
 }
 
-MyVector::MyVector(int n): n(n)
+MyVector::MyVector(int n): n(n)//TODO ,coord(nullptr)
 {
     coord = new double[n];
 
@@ -16,12 +16,12 @@ MyVector::MyVector(int n): n(n)
     }
 }
 
-MyVector::MyVector(int n, double *coord): n(n), coord(coord)
+MyVector::MyVector(int n, double *coord): n(n), coord(coord)//TODO а вось гэта бомба замаруджанага дзеяння
 {
 
 }
 
-MyVector::MyVector(const MyVector &original)
+MyVector::MyVector(const MyVector &original)//TODO :coord(nullptr)
 {
     n = original.n;
     coord = new double[n];
@@ -58,7 +58,7 @@ double MyVector::ScalarMultiply(const MyVector &other)const
     return result;
 }
 
-double MyVector::Module()const
+double MyVector::Module()const// а чаму б не вызвалі ScalarMultiply
 {
     double result = 0;
 
