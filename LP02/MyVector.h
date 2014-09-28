@@ -1,9 +1,9 @@
-#include <iostream>//TODO гэта таксама змяшчаецца у guardblock
-
 #ifndef __MyVector_H_
 #define __MyVector_H_
 
-using namespace std; // TODO у загаловачніках не раскрывам прастору
+#include <iostream>//TODO гэта таксама змяшчаецца у guardblock
+
+// TODO у загаловачніках не раскрывам прастору
 class MyVector
 {
 public:
@@ -35,8 +35,8 @@ public:
     MyVector& operator--();
     MyVector operator--(int);
 
-    friend ostream & operator<<(ostream & mystream, const MyVector &other);
-    friend istream & operator>>(istream & mystream, MyVector &other);
+    friend std::ostream & operator<<(std::ostream & mystream, const MyVector &other);
+    friend std::istream & operator>>(std::istream & mystream, MyVector &other);
 
     static bool IsCollinear(const MyVector & firstVector, const MyVector & secondVector);
     static bool IsOrthogonal(const MyVector & firstVector, const MyVector & secondVector);
