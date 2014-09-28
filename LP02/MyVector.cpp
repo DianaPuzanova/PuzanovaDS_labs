@@ -1,12 +1,14 @@
 #include <math.h>
 #include "MyVector.h"
+ 
+using namespace std; 
 
 MyVector::MyVector(): n(0), coord(nullptr)
 {
 
 }
 
-MyVector::MyVector(int n): n(n)//TODO ,coord(nullptr)
+MyVector::MyVector(int n): n(n), coord(nullptr)//TODO ,coord(nullptr)
 {
     coord = new double[n];
 
@@ -16,12 +18,18 @@ MyVector::MyVector(int n): n(n)//TODO ,coord(nullptr)
     }
 }
 
-MyVector::MyVector(int n, double *coord): n(n), coord(coord)//TODO а вось гэта бомба замаруджанага дзеяння
+MyVector::MyVector(int n, double *coord)//TODO а вось гэта бомба замаруджанага дзеяння
 {
+    this->n = n;
+    this->coord = new double[n];
 
+    for(int i = 0; i < n; i++)
+    {
+        this->coord[i] = coord[i];
+    }
 }
 
-MyVector::MyVector(const MyVector &original)//TODO :coord(nullptr)
+MyVector::MyVector(const MyVector &original): coord(nullptr)//TODO :coord(nullptr)
 {
     n = original.n;
     coord = new double[n];
@@ -60,14 +68,7 @@ double MyVector::ScalarMultiply(const MyVector &other)const
 
 double MyVector::Module()const// а чаму б не вызвалі ScalarMultiply
 {
-    double result = 0;
-
-    for (int i = 0; i < n; i++)
-    {
-        result += coord[i] * coord[i];
-    }
-
-    return sqrt(result);
+     return sqrt(ScalarMultiply(*this));
 }
 
 MyVector MyVector::Addition(const MyVector &other)const
